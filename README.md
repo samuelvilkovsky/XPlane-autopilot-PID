@@ -17,12 +17,14 @@ text
 text text
 
 ## Clone the repository
-Firstly, please ensure you have installed [git](https://git-scm.com/downloads) and latest version of [python](https://www.python.org/downloads/) on your personal laptop/computer.
-Using following commands clone the repository of this project, after cloning is done, please ensure all mandatory files were successfully cloned to your device.
+Firstly, please ensure you have installed [git](https://git-scm.com/downloads) and latest version of [python](https://www.python.org/downloads/) on your personall laptop/computer.
+Using following commands clone the repository of this project, after clonning is done, please ensure all mandatory fields were successfully cloned to your device.
 
     git clone https://github.com/samuelvilkovsky/uav-autopilot-reinforcement-learning.git
 
-If you already have our repository cloned, please continue with second step, installing all requirements, this is done by executing following commands.
+## Install requirements
+
+If you already have our repository clonned, please continue with second step, installing all requirements, this is done by executing following commands.
 
     # locate to folder where project is stored. e.g. cd Autopilot
     # use pip command regarding to your python installation (pip3)
