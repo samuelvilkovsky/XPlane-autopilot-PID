@@ -2,9 +2,9 @@
 
 Table of contents:
 
- 1. What is an Autopilot
- 2. Project Goal
- 3. Installation Guide
+ 1. [What is an Autopilot](#what-is-an-autopilot)
+ 2. [Project Goal](#project-goal)
+ 3. [Installation Guide](#installation-guide)
 
 # What is an Autopilot
 text text
