@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<initialize name="reset00">
+  <!--
+    This file sets up the aircraft on the runway, aligned for takeoff with initial speeds.
+  -->
+  <ubody unit="FT/SEC">    50.0  </ubody>  <!-- Initial forward speed in feet per second -->
+  <vbody unit="FT/SEC">    0.0   </vbody>  <!-- Side speed; should be zero -->
+  <wbody unit="FT/SEC">    0.0   </wbody>  <!-- Vertical speed; should be zero -->
+  <latitude unit="DEG">   47.0   </latitude>  <!-- Latitude of the runway -->
+  <longitude unit="DEG"> 122.0   </longitude> <!-- Longitude of the runway -->
+  <phi unit="DEG">         0.0   </phi>     <!-- Roll angle; should be zero for takeoff -->
+  <theta unit="DEG">       0.0   </theta>   <!-- Pitch angle; slightly positive if needed -->
+  <psi unit="DEG">       180.0   </psi>     <!-- Heading; aligned with the runway direction -->
+  <altitude unit="FT">     5.5   </altitude> <!-- Altitude; should match runway elevation -->
+</initialize>
