@@ -27,7 +27,7 @@ git clone https://github.com/samuelvilkovsky/XPlane-autopilot-PID.git
 ```
 &nbsp;4.  Install all required modules & libraries. (Make sure you have Python3 installed.)
 ```bash
-pip install flask socketio redis numpy pandas pyqtgraph gym
+pip install flask flask-socketio redis numpy pandas pyqtgraph gym
 ```
 &nbsp;5.  Start XPlane and verify if your X-Plane Connect plugin is up & working.
 
