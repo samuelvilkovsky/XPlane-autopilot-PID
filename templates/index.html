@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autopilot Interface</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var socket;
+    function adjustSetpoint(label, adjustment) {
+        socket.emit('adjust_setpoint', {label: label, adjustment: adjustment});
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+        socket.on('connect', () => {
+            console.log("Connected to WebSocket server.");
+        });
+        socket.on('update_setpoints', function(setpoints) {
+            for (const [label, value] of Object.entries(setpoints)) {
+                const element = document.getElementById(label);
+                if (element) {
+                    element.innerHTML = value;
+                }
+            }
+        });
+        socket.on('update_setpoint', data => {
+            for (const [label, value] of Object.entries(data)) {
+                const element = document.getElementById(label);
+                if (element) {
+                    element.innerHTML = value;
+                }
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>Autopilot Interface</h1>
+    <p>Current Setpoints:</p>
+    <ul>
+        <li>Heading: <span id="desired_hdg">0</span></li>
+        <li>Altitude: <span id="desired_alt">0</span></li>
+        <li>Speed: <span id="desired_speed">0</span></li>
+    </ul>
+    <p>Autopilot: <span id="autopilot_enabled">0</span></p>
+    <button onclick="adjustSetpoint('desired_hdg', 10)">+10 HDG</button>
+    <button onclick="adjustSetpoint('desired_hdg', -10)">-10 HDG</button>
+    <br>
+    <button onclick="adjustSetpoint('desired_alt', 500)">+500 ALT</button>
+    <button onclick="adjustSetpoint('desired_alt', -500)">-500 ALT</button>
+    <br>
+    <button onclick="adjustSetpoint('desired_speed', 5)">+5 KTS</button>
+    <button onclick="adjustSetpoint('desired_speed', -5)">-5 KTS</button>
+    <br>
+    <button onclick="adjustSetpoint('autopilot_enabled', 1)">Enable Autopilot</button>
+    <button onclick="adjustSetpoint('autopilot_enabled', 0)">Disable Autopilot</button>
+</body>
+</html>
